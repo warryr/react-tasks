@@ -19,7 +19,9 @@ const Counter = (props) => {
     <Container fixed>
       <Typography component='h1' variant='h3' className={classes.h3}>{props.value}</Typography>
       <DefaultButton id='increment' onClick={props.increment} text='Increment'/>
-      <DefaultButton id='decrement' onClick={props.decrement} text='Decrement'/>
+      {props.ableToDec ?
+        <DefaultButton id='decrement' onClick={props.decrement} text='Decrement' /> :
+        <DefaultButton id='decrement' text='Decrement' disabled/>}
       <DefaultButton id='reset' onClick={props.reset} text='Reset'/>
     </Container>
   )
@@ -30,6 +32,7 @@ Counter.propTypes = {
   increment: PropTypes.func.isRequired,
   decrement: PropTypes.func.isRequired,
   reset: PropTypes.func.isRequired,
+  ableToDec: PropTypes.bool.isRequired,
 };
 
 export default Counter;
