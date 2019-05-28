@@ -17,7 +17,7 @@ const Counter = (props) => {
   const classes = useHeadingStyles();
   return (
     <Container fixed>
-      <Typography component='h1' variant='h3' className={classes.h3}>Result: {props.value}</Typography>
+      <Typography component='h1' variant='h3' className={classes.h3}>{props.value}</Typography>
       <DefaultButton id='increment' onClick={props.increment} text='Increment'/>
       <DefaultButton id='decrement' onClick={props.decrement} text='Decrement'/>
       <DefaultButton id='reset' onClick={props.reset} text='Reset'/>
