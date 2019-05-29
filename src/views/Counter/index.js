@@ -1,20 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useButtonStyles } from './styles';
-import { useHeadingStyles } from './styles';
+import { useStyles } from './styles';
 import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 
+const classes = useStyles();
+
 const DefaultButton = (props) => {
-  const classes = useButtonStyles();
   return (
     <Button variant='contained' color='default' className={classes.button} {...props}>{props.text}</Button>
   )
 };
 
 const Counter = (props) => {
-  const classes = useHeadingStyles();
   return (
     <Container fixed>
       <Typography component='h1' variant='h3' className={classes.h3}>{props.value}</Typography>
