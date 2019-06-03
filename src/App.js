@@ -1,13 +1,15 @@
 import React from 'react';
 import './App.css';
-import CounterContainer from './containers/CounterContainer';
+import ParentCounterContainer from './containers/ParentCounterContainer';
 
-function App() {
-  return (
-    <div className='App'>
-      <CounterContainer/>
-    </div>
-  );
+class App extends React.Component {
+  render() {
+    return (
+      <div className='App'>
+        <ParentCounterContainer />
+      </div>
+    );
+  }
 }
 
 export default App;
