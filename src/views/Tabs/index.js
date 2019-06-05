@@ -20,6 +20,7 @@ export default () => {
           <Tab value={false} />
           <Tab label="О нас"  component={Link} to='/about'/>
           <Tab label="Счетчики" component={Link} to='/counters'/>
+          <Tab label="Войти" component={Link} to='/login'/>
         </Tabs>
       </AppBar>
     </div>
