@@ -5,23 +5,16 @@ import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 
-const DefaultButton = (props) => {
-  const classes = useStyles();
-  return (
-    <Button variant='contained' color='default' className={classes.button} {...props}>{props.text}</Button>
-  )
-};
-
 const Counter = (props) => {
   const classes = useStyles();
   return (
     <Container fixed>
       <Typography component='h1' variant='h3' className={classes.h3}>{props.value}</Typography>
-      <DefaultButton id='increment' onClick={props.increment} text='Increment'/>
+      <Button variant='contained' className={classes.defaultButton} onClick={props.increment}>Increment</Button>
       {props.ableToDec ?
-        <DefaultButton id='decrement' onClick={props.decrement} text='Decrement' /> :
-        <DefaultButton id='decrement' text='Decrement' disabled/>}
-      <DefaultButton id='reset' onClick={props.reset} text='Reset'/>
+        <Button variant='contained' className={classes.defaultButton} onClick={props.decrement}>Decrement</Button> :
+        <Button variant='contained' className={classes.defaultButton} disabled>Decrement</Button>}
+      <Button variant='contained' className={classes.defaultButton} onClick={props.reset}>Reset</Button>
     </Container>
   )
 };
