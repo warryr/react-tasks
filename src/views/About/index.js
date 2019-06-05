@@ -7,7 +7,7 @@ import aboutExpertise from '../../img/about-expertise.svg';
 import aboutLearning from '../../img/about-learning.svg';
 import aboutPositive from '../../img/about-positive.svg';
 import aboutTechnologies from '../../img/about-technologies.svg';
-import Typography from "@material-ui/core/Typography";
+import Typography from '@material-ui/core/Typography';
 
 const About = () => {
   const classes = useStyles();
