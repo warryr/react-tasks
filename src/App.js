@@ -12,15 +12,15 @@ class App extends React.Component {
       <div className='App'>
         <Router basename={process.env.PUBLIC_URL}>
           <Switch>
-            <Route path={process.env.PUBLIC_URL + '/404'} exact component={null}/>
-            <Route path={process.env.PUBLIC_URL + '/'} component={TabsContainer}/>
+            <Route path='/404' exact component={null}/>
+            <Route path='/' component={TabsContainer}/>
           </Switch>
           <Switch>
-            <Route path={process.env.PUBLIC_URL + '/'} exact component={null}/>
-            <Route path={process.env.PUBLIC_URL + '/about'} exact component={AboutContainer}/>
-            <Route path={process.env.PUBLIC_URL + '/counters'} exact component={ParentCounterContainer}/>
-            <Route path={process.env.PUBLIC_URL + '/404'} exact component={ErrorContainer}/>
-            <Redirect to={process.env.PUBLIC_URL + '/404'}/>
+            <Route path='/' exact component={null}/>
+            <Route path='/about' exact component={AboutContainer}/>
+            <Route path='/counters' exact component={ParentCounterContainer}/>
+            <Route path='/404' exact component={ErrorContainer}/>
+            <Redirect to='/404'/>
           </Switch>
         </Router>
       </div>
