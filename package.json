@@ -20,7 +20,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-  "homepage": "https://warryr.github.io/react-tasks/",
+  "homepage": "https://warryr.github.io/react-tasks",
   "eslintConfig": {
     "extends": "react-app"
   },
