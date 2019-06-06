@@ -5,20 +5,11 @@ import PropTypes from 'prop-types';
 export default class CounterContainer extends React.Component {
   constructor(props) {
     super(props);
-    this.incrementCounter = this.incrementCounter.bind(this);
-    this.decrementCounter = this.decrementCounter.bind(this);
-    this.resetCounter = this.resetCounter.bind(this);
     this.state = {
       counter: 0,
       ableToDecrement: false,
       initialState: true,
     };
-  }
-
-  render() {
-    console.log('Counter ' + this.props.id + ': render');
-    return <Counter value={this.state.counter} increment={this.incrementCounter} decrement={this.decrementCounter}
-                    reset={this.resetCounter} ableToDec={this.state.ableToDecrement} />
   }
 
   componentDidMount() {
@@ -72,28 +63,34 @@ export default class CounterContainer extends React.Component {
     return bool;
   }
 
-  incrementCounter() {
+  incrementCounter = () => {
     this.setState(state => ({
       counter: state.counter + 1,
       ableToDecrement: true,
       initialState: false,
     }));
-  }
+  };
 
-  decrementCounter() {
+  decrementCounter = () => {
     if (this.state.ableToDecrement) {
       this.setState(state => ({
         counter: state.counter - 1,
       }));
     }
-  }
+  };
 
-  resetCounter() {
+  resetCounter = () => {
     this.setState(() => ({
       counter: 0,
       ableToDecrement: false,
       initialState: true,
     }));
+  };
+
+  render() {
+    console.log('Counter ' + this.props.id + ': render');
+    return <Counter value={this.state.counter} increment={this.incrementCounter} decrement={this.decrementCounter}
+                    reset={this.resetCounter} ableToDec={this.state.ableToDecrement} />
   }
 }
 

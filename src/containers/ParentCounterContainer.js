@@ -5,9 +5,6 @@ import ParentCounter from "../views/ParentCounter";
 export default class ParentCounterContainer extends React.Component {
   constructor(props) {
     super(props);
-    this.onAddCounter = this.onAddCounter.bind(this);
-    this.onDeleteCounter = this.onDeleteCounter.bind(this);
-    this.onResetCounters = this.onResetCounters.bind(this);
     this.state = {
       counters: [
         {id: 1}
@@ -17,22 +14,6 @@ export default class ParentCounterContainer extends React.Component {
       childMustReset: true,
       executedOperation: 'reset',
     };
-  }
-
-  render() {
-    console.log('Parent: render');
-    return (
-      <div>
-        <ParentCounter onAdd={this.onAddCounter} onDelete={this.onDeleteCounter} onReset={this.onResetCounters}
-                       ableToDel={this.state.ableToDelete}/>
-        {this.state.counters.map(counter => {
-            return counter.id === 1 ?
-              <CounterContainer key={counter.id} id={counter.id} mustReset={this.state.childMustReset}
-                                executed={this.state.executedOperation}/> :
-              <CounterContainer key={counter.id} id={counter.id} executed={this.state.executedOperation}/>
-          })}
-      </div>
-    );
   }
 
   componentDidMount() {
@@ -58,7 +39,7 @@ export default class ParentCounterContainer extends React.Component {
     }
   }
 
-  onAddCounter() {
+  onAddCounter = () => {
     this.setState(state => ({
       counters: [
         {id: state.lastId + 1},
@@ -69,9 +50,9 @@ export default class ParentCounterContainer extends React.Component {
       childMustReset: false,
       executedOperation: 'add',
     }));
-  }
+  };
 
-  onDeleteCounter() {
+  onDeleteCounter = () => {
     if (this.state.ableToDelete) {
       this.setState(state => {
         const array = state.counters;
@@ -84,9 +65,9 @@ export default class ParentCounterContainer extends React.Component {
         };
       });
     }
-  }
+  };
 
-  onResetCounters() {
+  onResetCounters = () => {
     this.setState(() => ({
       counters: [
         {id: 1}
@@ -96,5 +77,21 @@ export default class ParentCounterContainer extends React.Component {
       childMustReset: true,
       executedOperation: 'reset',
     }));
+  };
+
+  render() {
+    console.log('Parent: render');
+    return (
+      <div>
+        <ParentCounter onAdd={this.onAddCounter} onDelete={this.onDeleteCounter} onReset={this.onResetCounters}
+                       ableToDel={this.state.ableToDelete}/>
+        {this.state.counters.map(counter => {
+          return counter.id === 1 ?
+            <CounterContainer key={counter.id} id={counter.id} mustReset={this.state.childMustReset}
+                              executed={this.state.executedOperation}/> :
+            <CounterContainer key={counter.id} id={counter.id} executed={this.state.executedOperation}/>
+        })}
+      </div>
+    );
   }
 }

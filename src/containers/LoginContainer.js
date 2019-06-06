@@ -4,9 +4,6 @@ import Login from '../views/Login';
 export default class LoginContainer extends React.Component {
   constructor(props) {
     super(props);
-    this.displayInputValue = this.displayInputValue.bind(this);
-    this.handleLogin = this.handleLogin.bind(this);
-    this.resetState = this.resetState.bind(this);
     this.state = {
       currentEmailValue: '',
       currentPasswordValue: '',
@@ -18,15 +15,7 @@ export default class LoginContainer extends React.Component {
     }
   }
 
-  render() {
-    return (
-        <Login login={this.handleLogin} displayInput={this.displayInputValue} data={this.state.loggedInData}
-               emailValue={this.state.currentEmailValue} passwordValue={this.state.currentPasswordValue}
-               emailError={this.state.emailError} passwordError={this.state.passwordError}/>
-    );
-  }
-
-  displayInputValue() {
+  displayInputValue = () => {
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
 
@@ -36,9 +25,9 @@ export default class LoginContainer extends React.Component {
       emailValid: email.length > 5,
       passwordValid: password.length > 5,
     }));
-  }
+  };
 
-  handleLogin(e) {
+  handleLogin = (e) => {
     e.preventDefault();
 
     this.setState(state => ({
@@ -60,9 +49,9 @@ export default class LoginContainer extends React.Component {
       document.getElementById('form').reset();
       this.resetState();
     }
-  }
+  };
 
-  resetState() {
+  resetState = () => {
     this.setState(() => ({
       currentEmailValue: '',
       currentPasswordValue: '',
@@ -71,5 +60,13 @@ export default class LoginContainer extends React.Component {
       emailError: false,
       passwordError: false,
     }));
+  };
+
+  render() {
+    return (
+      <Login login={this.handleLogin} displayInput={this.displayInputValue} data={this.state.loggedInData}
+             emailValue={this.state.currentEmailValue} passwordValue={this.state.currentPasswordValue}
+             emailError={this.state.emailError} passwordError={this.state.passwordError}/>
+    );
   }
 }
