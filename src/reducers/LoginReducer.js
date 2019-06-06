@@ -1,7 +1,7 @@
 import { loginActionTypes } from '../actions/actionTypes';
 
 export const LoginReducer = (state={loggedInData: {}}, action) => {
-  switch (action) {
+  switch (action.type) {
     case loginActionTypes.SET_LOGIN_EMAIL: {
       return {
         ...state,
