@@ -42,11 +42,10 @@ export default class CounterContainer extends React.Component {
   componentDidUpdate(prevProps, prevState, snapshot) {
     console.log('Counter ' + this.props.id + ': componentDidUpdate');
     if (this.state.counter === 0 && this.state.ableToDecrement) {
-      this.setState({
-        ...this.state,
+      this.setState(() => ({
         ableToDecrement: false,
         initialState: true,
-      })
+      }));
     }
   }
 
@@ -74,31 +73,27 @@ export default class CounterContainer extends React.Component {
   }
 
   incrementCounter() {
-    this.setState({
-      ...this.state,
-      counter: this.state.counter + 1,
+    this.setState(state => ({
+      counter: state.counter + 1,
       ableToDecrement: true,
       initialState: false,
-      executedOperation: 'add',
-    });
+    }));
   }
 
   decrementCounter() {
     if (this.state.ableToDecrement) {
-      this.setState({
-        ...this.state,
-        counter: this.state.counter - 1,
-      });
+      this.setState(state => ({
+        counter: state.counter - 1,
+      }));
     }
   }
 
   resetCounter() {
-    this.setState({
-      ...this.state,
+    this.setState(() => ({
       counter: 0,
       ableToDecrement: false,
       initialState: true,
-    });
+    }));
   }
 }
 
