@@ -4,7 +4,6 @@ export const ValidationReducer = (state={validation: {}}, action) => {
   switch (action.type) {
     case validationActionTypes.SET_EMAIL_VALIDATION: {
       return {
-        ...state,
         validation: {
           ...state.validation,
           emailValid: action.payload
@@ -13,7 +12,6 @@ export const ValidationReducer = (state={validation: {}}, action) => {
     }
     case validationActionTypes.SET_PASSWORD_VALIDATION: {
       return {
-        ...state,
         validation: {
           ...state.validation,
           passwordValid: action.payload

@@ -4,7 +4,6 @@ export const InputReducer = (state={currentInput: {}}, action) => {
   switch (action.type) {
     case inputActionTypes.SET_CURRENT_EMAIL: {
       return {
-        ...state,
         currentInput: {
           ...state.currentInput,
           currentEmail: action.payload
@@ -13,7 +12,6 @@ export const InputReducer = (state={currentInput: {}}, action) => {
     }
     case inputActionTypes.SET_CURRENT_PASSWORD: {
       return {
-        ...state,
         currentInput: {
           ...state.currentInput,
           currentPassword: action.payload
