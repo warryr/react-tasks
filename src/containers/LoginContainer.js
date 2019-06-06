@@ -33,8 +33,8 @@ export default class LoginContainer extends React.Component {
     this.setState(() => ({
       currentEmailValue: email,
       currentPasswordValue: password,
-      emailValid: email.split('').length > 5,
-      passwordValid: password.split('').length > 5,
+      emailValid: email.length > 5,
+      passwordValid: password.length > 5,
     }));
   }
 
