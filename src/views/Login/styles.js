@@ -1,5 +1,6 @@
 import { makeStyles } from '@material-ui/core';
 import grey from '@material-ui/core/colors/grey';
+import red from '@material-ui/core/colors/red';
 
 export const useStyles = makeStyles(theme => ({
   '@global': {
@@ -27,5 +28,10 @@ export const useStyles = makeStyles(theme => ({
   logBox: {
     margin: theme.spacing(2),
     color: grey[500],
+  },
+  hint: {
+    textAlign: 'left',
+    fontSize: '14px',
+    color: red[500],
   }
 }));

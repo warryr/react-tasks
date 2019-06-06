@@ -11,19 +11,29 @@ import { useStyles } from './styles';
 const Login = (props) => {
   const classes = useStyles();
   return (
-    <Container component="main" maxWidth="xs">
+    <Container component='main' maxWidth='xs'>
       <CssBaseline />
       <div className={classes.paper}>
         <form id='form' className={classes.form} noValidate>
-          <TextField variant="outlined" margin="normal" fullWidth autoFocus label="Почта"
-                     id="email" name="email" required onChange={props.display}/>
-          <TextField type="password" variant="outlined" margin="normal" fullWidth label="Пароль"
-                     id="password" name="password" required onChange={props.display}/>
-          <Button type="button" variant="contained" color="primary" fullWidth
+
+          <TextField variant='outlined' margin='normal' id='email' name='email' label='Почта'
+                     fullWidth autoFocus required error={props.emailError} onChange={props.displayInput}/>
+          <Typography className={classes.hint} hidden={!props.emailError}>
+            Минимум 6 символов
+          </Typography>
+
+          <TextField type='password' variant='outlined' margin='normal' id='password' name='password' label='Пароль'
+                     fullWidth required error={props.passwordError} onChange={props.displayInput}/>
+          <Typography className={classes.hint} hidden={!props.passwordError}>
+            Минимум 6 символов
+          </Typography>
+
+          <Button type='submit' variant='contained' color='primary' fullWidth
                   className={classes.submit} onClick={props.login}>
             Войти
           </Button>
         </form>
+
         <Box className={classes.logBox}>
           <Typography>
             Введенная почта: {props.emailValue}
@@ -32,16 +42,25 @@ const Login = (props) => {
             Введенный пароль: {props.passwordValue}
           </Typography>
         </Box>
+
+        <Box className={classes.logBox} hidden={props.data === ''}>
+          <Typography>
+            Данные из формы: {props.data}
+          </Typography>
+        </Box>
       </div>
     </Container>
   );
 };
 
 Login.propTypes = {
+  login: PropTypes.func.isRequired,
+  displayInput: PropTypes.func.isRequired,
   emailValue: PropTypes.string.isRequired,
   passwordValue: PropTypes.string.isRequired,
-  login: PropTypes.func.isRequired,
-  display: PropTypes.func.isRequired,
+  emailError: PropTypes.bool.isRequired,
+  passwordError: PropTypes.bool.isRequired,
+  data: PropTypes.string.isRequired,
 };
 
 export default Login;

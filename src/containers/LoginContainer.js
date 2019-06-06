@@ -1,23 +1,28 @@
 import React from 'react';
-import Login from "../views/Login";
+import Login from '../views/Login';
 
 export default class LoginContainer extends React.Component {
   constructor(props) {
     super(props);
-    this.onLogin = this.onLogin.bind(this);
     this.displayInputValue = this.displayInputValue.bind(this);
+    this.handleLogin = this.handleLogin.bind(this);
+    this.resetState = this.resetState.bind(this);
     this.state = {
       currentEmailValue: '',
       currentPasswordValue: '',
       emailValid: false,
       passwordValid: false,
+      emailError: false,
+      passwordError: false,
+      loggedInData: '',
     }
   }
 
   render() {
     return (
-        <Login login={this.onLogin} display={this.displayInputValue}
-               emailValue={this.state.currentEmailValue} passwordValue={this.state.currentPasswordValue}/>
+        <Login login={this.handleLogin} displayInput={this.displayInputValue} data={this.state.loggedInData}
+               emailValue={this.state.currentEmailValue} passwordValue={this.state.currentPasswordValue}
+               emailError={this.state.emailError} passwordError={this.state.passwordError}/>
     );
   }
 
@@ -25,8 +30,7 @@ export default class LoginContainer extends React.Component {
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
 
-    this.setState(state => ({
-      ...state,
+    this.setState(() => ({
       currentEmailValue: email,
       currentPasswordValue: password,
       emailValid: email.split('').length > 5,
@@ -34,13 +38,38 @@ export default class LoginContainer extends React.Component {
     }));
   }
 
-  onLogin() {
-    const emailField = document.getElementById('email');
-    const passwordField = document.getElementById('password');
+  handleLogin(e) {
+    e.preventDefault();
+
+    this.setState(state => ({
+      emailError: !state.emailValid,
+      passwordError: !state.passwordValid,
+    }));
 
     if (this.state.emailValid && this.state.passwordValid) {
-      document.getElementById('form').reset();
-    }
+      console.log('Введенная почта: ' + this.state.currentEmailValue);
+      console.log('Введенный пароль: ' + this.state.currentPasswordValue);
 
+      this.setState(state => ({
+        loggedInData: JSON.stringify({
+          email: state.currentEmailValue,
+          password: state.currentPasswordValue
+        }),
+      }));
+
+      document.getElementById('form').reset();
+      this.resetState();
+    }
+  }
+
+  resetState() {
+    this.setState(() => ({
+      currentEmailValue: '',
+      currentPasswordValue: '',
+      emailValid: false,
+      passwordValid: false,
+      emailError: false,
+      passwordError: false,
+    }));
   }
 }
