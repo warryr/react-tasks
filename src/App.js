@@ -6,6 +6,7 @@ import TabsContainer from './containers/TabsContainer';
 import AboutContainer from './containers/AboutContainer';
 import ErrorContainer from './containers/ErrorContainer';
 import LoginContainer from './containers/LoginContainer';
+import LoginReduxContainer from './containers/LoginReduxContainer';
 
 class App extends React.Component {
   render() {
@@ -21,6 +22,7 @@ class App extends React.Component {
             <Route path='/about' exact component={AboutContainer}/>
             <Route path='/counters' exact component={ParentCounterContainer}/>
             <Route path='/login' exact component={LoginContainer}/>
+            <Route path='/login-redux' exact component={LoginReduxContainer}/>
             <Route path='/404' exact component={ErrorContainer}/>
             <Redirect to='/404'/>
           </Switch>

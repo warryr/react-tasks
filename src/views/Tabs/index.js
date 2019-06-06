@@ -21,6 +21,7 @@ export default () => {
           <Tab label="О нас"  component={Link} to='/about'/>
           <Tab label="Счетчики" component={Link} to='/counters'/>
           <Tab label="Войти" component={Link} to='/login'/>
+          <Tab label="Войти с помощью Redux" component={Link} to='/login-redux'/>
         </Tabs>
       </AppBar>
     </div>
