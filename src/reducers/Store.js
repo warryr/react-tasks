@@ -4,9 +4,9 @@ import { InputReducer } from './InputReducer';
 import { ValidationReducer } from './ValidationReducer';
 
 const rootReducer = combineReducers({
-  input: InputReducer,
+  currentInput: InputReducer,
   validation: ValidationReducer,
-  login: LoginReducer,
+  loggedInData: LoginReducer,
 });
 
 const store = createStore(rootReducer);
