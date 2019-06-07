@@ -1,43 +1,47 @@
-import { inputActionTypes, loginActionTypes, validationActionTypes } from './actionTypes';
+import {
+  inputActionTypes,
+  loginActionTypes,
+  validationActionTypes,
+} from './actionTypes';
 
-export const setCurrentEmail = (email) => {
+export const setCurrentEmail = email => {
   return {
     type: inputActionTypes.SET_CURRENT_EMAIL,
-    payload: email
+    payload: email,
   };
 };
 
-export const setCurrentPassword = (password) => {
+export const setCurrentPassword = password => {
   return {
     type: inputActionTypes.SET_CURRENT_PASSWORD,
-    payload: password
+    payload: password,
   };
 };
 
-export const setEmailValidation = (bool) => {
+export const setEmailValidation = bool => {
   return {
     type: validationActionTypes.SET_EMAIL_VALIDATION,
-    payload: bool
+    payload: bool,
   };
 };
 
-export const setPasswordValidation = (bool) => {
+export const setPasswordValidation = bool => {
   return {
     type: validationActionTypes.SET_PASSWORD_VALIDATION,
-    payload: bool
+    payload: bool,
   };
 };
 
-export const setLoginEmail = (email) => {
+export const setLoginEmail = email => {
   return {
     type: loginActionTypes.SET_LOGIN_EMAIL,
-    payload: email
+    payload: email,
   };
 };
 
-export const setLoginPassword = (password) => {
+export const setLoginPassword = password => {
   return {
     type: loginActionTypes.SET_LOGIN_PASSWORD,
-    payload: password
+    payload: password,
   };
 };
