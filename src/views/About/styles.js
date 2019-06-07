@@ -24,5 +24,5 @@ export const useStyles = makeStyles(theme => ({
   image: {
     width: '100px',
     height: '100px',
-  }
+  },
 }));

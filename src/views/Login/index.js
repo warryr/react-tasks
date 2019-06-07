@@ -8,45 +8,63 @@ import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import { useStyles } from './styles';
 
-const Login = (props) => {
+const Login = props => {
   const classes = useStyles();
   return (
     <Container component='main' maxWidth='xs'>
       <CssBaseline />
       <div className={classes.paper}>
         <form id='form' className={classes.form} noValidate>
-
-          <TextField variant='outlined' margin='normal' id='email' name='email' label='Почта'
-                     fullWidth autoFocus required error={props.emailError} onChange={props.displayInput}/>
+          <TextField
+            variant='outlined'
+            margin='normal'
+            id='email'
+            name='email'
+            label='Почта'
+            fullWidth
+            autoFocus
+            required
+            error={props.emailError}
+            onChange={props.displayInput}
+          />
           <Typography className={classes.hint} hidden={!props.emailError}>
             Минимум 6 символов
           </Typography>
 
-          <TextField type='password' variant='outlined' margin='normal' id='password' name='password' label='Пароль'
-                     fullWidth required error={props.passwordError} onChange={props.displayInput}/>
+          <TextField
+            type='password'
+            variant='outlined'
+            margin='normal'
+            id='password'
+            name='password'
+            label='Пароль'
+            fullWidth
+            required
+            error={props.passwordError}
+            onChange={props.displayInput}
+          />
           <Typography className={classes.hint} hidden={!props.passwordError}>
             Минимум 6 символов
           </Typography>
 
-          <Button type='submit' variant='contained' color='primary' fullWidth
-                  className={classes.submit} onClick={props.login}>
+          <Button
+            type='submit'
+            variant='contained'
+            color='primary'
+            fullWidth
+            className={classes.submit}
+            onClick={props.login}>
             Войти
           </Button>
         </form>
 
         <Box className={classes.logBox}>
-          <Typography>
-            Введенная почта: {props.emailValue}
-          </Typography>
-          <Typography>
-            Введенный пароль: {props.passwordValue}
-          </Typography>
+          <Typography>Введенная почта: {props.emailValue}</Typography>
+          <Typography>Введенный пароль: {props.passwordValue}</Typography>
         </Box>
 
         <Box className={classes.logBox} hidden={props.data === ''}>
-          <Typography>
-            Данные из формы: {props.data}
-          </Typography>
+          <Typography>Данные из формы: {props.data}</Typography>
         </Box>
       </div>
     </Container>

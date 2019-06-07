@@ -18,31 +18,49 @@ const About = () => {
       </Typography>
       <Box className={classes.containerBox}>
         <Box component='div' className={classes.contentBox}>
-          <img src={aboutAgile} alt='About agile' className={classes.image}/>
+          <img src={aboutAgile} alt='About agile' className={classes.image} />
           <Typography component='p' variant='h6' className={classes.paragraph}>
-            Мы придерживаемся гибкого подхода как в менеджменте, так и в реализации новых идей
+            Мы придерживаемся гибкого подхода как в менеджменте, так и в
+            реализации новых идей
           </Typography>
         </Box>
         <Box component='div' className={classes.contentBox}>
-          <img src={aboutExpertise} alt='About expertise' className={classes.image}/>
+          <img
+            src={aboutExpertise}
+            alt='About expertise'
+            className={classes.image}
+          />
           <Typography component='p' variant='h6' className={classes.paragraph}>
-            У нас работают Remarkable People – высококлассные специалисты с глубокой технической экспертизой
+            У нас работают Remarkable People – высококлассные специалисты с
+            глубокой технической экспертизой
           </Typography>
         </Box>
         <Box component='div' className={classes.contentBox}>
-          <img src={aboutLearning} alt='About learning' className={classes.image}/>
+          <img
+            src={aboutLearning}
+            alt='About learning'
+            className={classes.image}
+          />
           <Typography component='p' variant='h6' className={classes.paragraph}>
             Мы, как и наши западные заказчики, предпочитаем новые технологии
           </Typography>
         </Box>
         <Box component='div' className={classes.contentBox}>
-          <img src={aboutPositive} alt='About positive' className={classes.image}/>
+          <img
+            src={aboutPositive}
+            alt='About positive'
+            className={classes.image}
+          />
           <Typography component='p' variant='h6' className={classes.paragraph}>
             Мы любим учиться и делиться своими знаниями
           </Typography>
         </Box>
         <Box component='div' className={classes.contentBox}>
-          <img src={aboutTechnologies} alt='About technologies' className={classes.image}/>
+          <img
+            src={aboutTechnologies}
+            alt='About technologies'
+            className={classes.image}
+          />
           <Typography component='p' variant='h6' className={classes.paragraph}>
             У нас в компании доброжелательная и творческая атмосфера
           </Typography>

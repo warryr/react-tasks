@@ -33,5 +33,5 @@ export const useStyles = makeStyles(theme => ({
     textAlign: 'left',
     fontSize: '14px',
     color: red[500],
-  }
+  },
 }));

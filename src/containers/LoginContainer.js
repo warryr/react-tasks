@@ -12,7 +12,7 @@ export default class LoginContainer extends React.Component {
       emailError: false,
       passwordError: false,
       loggedInData: '',
-    }
+    };
   }
 
   displayInputValue = () => {
@@ -27,7 +27,7 @@ export default class LoginContainer extends React.Component {
     }));
   };
 
-  handleLogin = (e) => {
+  handleLogin = e => {
     e.preventDefault();
 
     this.setState(state => ({
@@ -42,7 +42,7 @@ export default class LoginContainer extends React.Component {
       this.setState(state => ({
         loggedInData: JSON.stringify({
           email: state.currentEmailValue,
-          password: state.currentPasswordValue
+          password: state.currentPasswordValue,
         }),
       }));
 
@@ -64,9 +64,15 @@ export default class LoginContainer extends React.Component {
 
   render() {
     return (
-      <Login login={this.handleLogin} displayInput={this.displayInputValue} data={this.state.loggedInData}
-             emailValue={this.state.currentEmailValue} passwordValue={this.state.currentPasswordValue}
-             emailError={this.state.emailError} passwordError={this.state.passwordError}/>
+      <Login
+        login={this.handleLogin}
+        displayInput={this.displayInputValue}
+        data={this.state.loggedInData}
+        emailValue={this.state.currentEmailValue}
+        passwordValue={this.state.currentPasswordValue}
+        emailError={this.state.emailError}
+        passwordError={this.state.passwordError}
+      />
     );
   }
 }

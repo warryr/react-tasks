@@ -15,15 +15,19 @@ export default () => {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar position='static'>
         <Tabs value={value} onChange={handleChange}>
           <Tab value={false} />
-          <Tab label="О нас"  component={Link} to='/about'/>
-          <Tab label="Счетчики" component={Link} to='/counters'/>
-          <Tab label="Войти" component={Link} to='/login'/>
-          <Tab label="Войти с помощью Redux" component={Link} to='/login-redux'/>
+          <Tab label='О нас' component={Link} to='/about' />
+          <Tab label='Счетчики' component={Link} to='/counters' />
+          <Tab label='Войти' component={Link} to='/login' />
+          <Tab
+            label='Войти с помощью Redux'
+            component={Link}
+            to='/login-redux'
+          />
         </Tabs>
       </AppBar>
     </div>
-  )
+  );
 };

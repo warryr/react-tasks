@@ -5,18 +5,39 @@ import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 
-const Counter = (props) => {
+const Counter = props => {
   const classes = useStyles();
   return (
     <Container fixed>
-      <Typography component='h1' variant='h3' className={classes.h3}>{props.value}</Typography>
-      <Button variant='contained' className={classes.defaultButton} onClick={props.increment}>Increment</Button>
-      {props.ableToDec ?
-        <Button variant='contained' className={classes.defaultButton} onClick={props.decrement}>Decrement</Button> :
-        <Button variant='contained' className={classes.defaultButton} disabled>Decrement</Button>}
-      <Button variant='contained' className={classes.defaultButton} onClick={props.reset}>Reset</Button>
+      <Typography component='h1' variant='h3' className={classes.h3}>
+        {props.value}
+      </Typography>
+      <Button
+        variant='contained'
+        className={classes.defaultButton}
+        onClick={props.increment}>
+        Increment
+      </Button>
+      {props.ableToDec ? (
+        <Button
+          variant='contained'
+          className={classes.defaultButton}
+          onClick={props.decrement}>
+          Decrement
+        </Button>
+      ) : (
+        <Button variant='contained' className={classes.defaultButton} disabled>
+          Decrement
+        </Button>
+      )}
+      <Button
+        variant='contained'
+        className={classes.defaultButton}
+        onClick={props.reset}>
+        Reset
+      </Button>
     </Container>
-  )
+  );
 };
 
 Counter.propTypes = {

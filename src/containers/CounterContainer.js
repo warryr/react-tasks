@@ -42,24 +42,37 @@ export default class CounterContainer extends React.Component {
 
   UNSAFE_componentWillReceiveProps(nextProps, nextContext) {
     if (nextProps.executed === 'add') {
-      console.log('Counter ' + this.props.id + ': UNSAFE_componentWillReceiveProps');
-      return this.state.counter % 2 === 0 ? this.incrementCounter() : undefined
+      console.log(
+        'Counter ' + this.props.id + ': UNSAFE_componentWillReceiveProps'
+      );
+      return this.state.counter % 2 === 0 ? this.incrementCounter() : undefined;
     }
 
     if (nextProps.executed === 'delete') {
-      console.log('Counter ' + this.props.id + ': UNSAFE_componentWillReceiveProps');
-      return this.state.counter % 2 === 1 ? this.decrementCounter() : undefined
+      console.log(
+        'Counter ' + this.props.id + ': UNSAFE_componentWillReceiveProps'
+      );
+      return this.state.counter % 2 === 1 ? this.decrementCounter() : undefined;
     }
 
-    if (nextProps.mustReset && (!this.props.mustReset || !this.state.initialState)) {
-      console.log('Counter ' + this.props.id + ': UNSAFE_componentWillReceiveProps');
+    if (
+      nextProps.mustReset &&
+      (!this.props.mustReset || !this.state.initialState)
+    ) {
+      console.log(
+        'Counter ' + this.props.id + ': UNSAFE_componentWillReceiveProps'
+      );
       this.resetCounter();
     }
   }
 
   shouldComponentUpdate(nextProps, nextState, nextContext) {
-    const bool = nextState.counter !== this.state.counter || nextState.ableToDecrement !== this.state.ableToDecrement;
-    console.log('Counter ' + this.props.id + ': shouldComponentUpdate: ' + bool);
+    const bool =
+      nextState.counter !== this.state.counter ||
+      nextState.ableToDecrement !== this.state.ableToDecrement;
+    console.log(
+      'Counter ' + this.props.id + ': shouldComponentUpdate: ' + bool
+    );
     return bool;
   }
 
@@ -89,8 +102,15 @@ export default class CounterContainer extends React.Component {
 
   render() {
     console.log('Counter ' + this.props.id + ': render');
-    return <Counter value={this.state.counter} increment={this.incrementCounter} decrement={this.decrementCounter}
-                    reset={this.resetCounter} ableToDec={this.state.ableToDecrement} />
+    return (
+      <Counter
+        value={this.state.counter}
+        increment={this.incrementCounter}
+        decrement={this.decrementCounter}
+        reset={this.resetCounter}
+        ableToDec={this.state.ableToDecrement}
+      />
+    );
   }
 }
 

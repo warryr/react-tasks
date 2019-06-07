@@ -6,7 +6,7 @@ import { ValidationReducer } from './ValidationReducer';
 const rootReducer = combineReducers({
   input: InputReducer,
   validation: ValidationReducer,
-  login: LoginReducer
+  login: LoginReducer,
 });
 
 const store = createStore(rootReducer);
