@@ -1,5 +1,6 @@
 import React from 'react';
 import Login from '../views/Login';
+import validateField from '../util/validateField';
 
 export default class LoginContainer extends React.Component {
   constructor(props) {
@@ -22,8 +23,8 @@ export default class LoginContainer extends React.Component {
     this.setState({
       currentEmailValue: email,
       currentPasswordValue: password,
-      emailValid: email.length > 5,
-      passwordValid: password.length > 5,
+      emailValid: validateField(email),
+      passwordValid: validateField(password),
     });
   };
 

@@ -1,6 +1,11 @@
 import { inputActionTypes } from '../actions/actionTypes';
 
-export const InputReducer = (state = {}, action) => {
+const getInitialState = () => ({
+  currentEmail: '',
+  currentPassword: '',
+});
+
+export const InputReducer = (state = getInitialState(), action) => {
   switch (action.type) {
     case inputActionTypes.SET_CURRENT_EMAIL: {
       return {

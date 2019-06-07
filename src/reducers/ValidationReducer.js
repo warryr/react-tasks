@@ -1,6 +1,11 @@
 import { validationActionTypes } from '../actions/actionTypes';
 
-export const ValidationReducer = (state = {}, action) => {
+const getInitialState = () => ({
+  emailValid: true,
+  passwordValid: true,
+});
+
+export const ValidationReducer = (state = getInitialState(), action) => {
   switch (action.type) {
     case validationActionTypes.SET_EMAIL_VALIDATION: {
       return {

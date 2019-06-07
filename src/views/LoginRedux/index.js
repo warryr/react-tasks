@@ -14,11 +14,11 @@ const LoginRedux = props => {
     <Container component='main' maxWidth='xs'>
       <CssBaseline />
       <div className={classes.paper}>
-        <form id='form' className={classes.form} noValidate>
+        <form id='reduxForm' className={classes.form} noValidate>
           <TextField
             variant='outlined'
             margin='normal'
-            id='email'
+            id='reduxEmail'
             name='email'
             label='Почта'
             fullWidth
@@ -35,7 +35,7 @@ const LoginRedux = props => {
             type='password'
             variant='outlined'
             margin='normal'
-            id='password'
+            id='reduxPassword'
             name='password'
             label='Пароль'
             fullWidth
@@ -62,10 +62,6 @@ const LoginRedux = props => {
           <Typography>Введенная почта: {props.emailValue}</Typography>
           <Typography>Введенный пароль: {props.passwordValue}</Typography>
         </Box>
-
-        <Box className={classes.logBox} hidden={props.data === ''}>
-          <Typography>Данные из формы: {props.data}</Typography>
-        </Box>
       </div>
     </Container>
   );
@@ -78,7 +74,6 @@ LoginRedux.propTypes = {
   passwordValue: PropTypes.string.isRequired,
   emailError: PropTypes.bool.isRequired,
   passwordError: PropTypes.bool.isRequired,
-  data: PropTypes.string.isRequired,
 };
 
 export default LoginRedux;

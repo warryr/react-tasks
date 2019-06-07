@@ -1,6 +1,11 @@
 import { loginActionTypes } from '../actions/actionTypes';
 
-export const LoginReducer = (state = {}, action) => {
+const getInitialState = () => ({
+  emailError: false,
+  passwordError: false,
+});
+
+export const LoginReducer = (state = getInitialState(), action) => {
   switch (action.type) {
     case loginActionTypes.SET_LOGIN_EMAIL: {
       return {
