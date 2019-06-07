@@ -33,10 +33,10 @@ export default class CounterContainer extends React.Component {
   componentDidUpdate(prevProps, prevState, snapshot) {
     console.log('Counter ' + this.props.id + ': componentDidUpdate');
     if (this.state.counter === 0 && this.state.ableToDecrement) {
-      this.setState(() => ({
+      this.setState({
         ableToDecrement: false,
         initialState: true,
-      }));
+      });
     }
   }
 
@@ -93,11 +93,11 @@ export default class CounterContainer extends React.Component {
   };
 
   resetCounter = () => {
-    this.setState(() => ({
+    this.setState({
       counter: 0,
       ableToDecrement: false,
       initialState: true,
-    }));
+    });
   };
 
   render() {

@@ -31,7 +31,6 @@ export default class ParentCounterContainer extends React.Component {
     console.log('Parent: componentDidUpdate');
     if (this.state.counters.length === 1 && this.state.ableToDelete) {
       this.setState({
-        ...this.state,
         ableToDelete: false,
       });
     }
@@ -63,13 +62,13 @@ export default class ParentCounterContainer extends React.Component {
   };
 
   onResetCounters = () => {
-    this.setState(() => ({
+    this.setState({
       counters: [{ id: 1 }],
       lastId: 1,
       ableToDelete: false,
       childMustReset: true,
       executedOperation: 'reset',
-    }));
+    });
   };
 
   render() {

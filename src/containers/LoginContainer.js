@@ -19,12 +19,12 @@ export default class LoginContainer extends React.Component {
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
 
-    this.setState(() => ({
+    this.setState({
       currentEmailValue: email,
       currentPasswordValue: password,
       emailValid: email.length > 5,
       passwordValid: password.length > 5,
-    }));
+    });
   };
 
   handleLogin = e => {
@@ -52,14 +52,14 @@ export default class LoginContainer extends React.Component {
   };
 
   resetState = () => {
-    this.setState(() => ({
+    this.setState({
       currentEmailValue: '',
       currentPasswordValue: '',
       emailValid: false,
       passwordValid: false,
       emailError: false,
       passwordError: false,
-    }));
+    });
   };
 
   render() {
