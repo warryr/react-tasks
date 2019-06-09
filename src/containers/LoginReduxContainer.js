@@ -40,6 +40,10 @@ class LoginReduxContainer extends React.Component {
     }
   };
 
+  componentWillUnmount() {
+    this.props.cleanCurrentValue();
+  }
+
   render() {
     return (
       <LoginRedux
@@ -70,6 +74,10 @@ const mapDispatchToProps = dispatch => ({
   setPasswordValidation: valid => dispatch(setPasswordValidation(valid)),
   setLoginEmail: email => dispatch(setLoginEmail(email)),
   setLoginPassword: password => dispatch(setLoginPassword(password)),
+  cleanCurrentValue: () => {
+    dispatch(setCurrentEmail(''));
+    dispatch(setCurrentPassword(''));
+  }
 });
 
 export default connect(
