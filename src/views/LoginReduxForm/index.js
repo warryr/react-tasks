@@ -1,13 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Field, reduxForm } from 'redux-form';
-import validateField from '../../util/validateField';
-
-const validate = values => {
-  const errors = { email: false, password: false };
-  errors.email = !validateField(values.email);
-  errors.password = !validateField(values.password);
-  return errors;
-};
+import Typography from '@material-ui/core/Typography';
+import Box from '@material-ui/core/Box';
 
 let LoginReduxForm = props => {
   return (
@@ -19,9 +14,10 @@ let LoginReduxForm = props => {
           id='reduxFormEmail'
           component='input'
           type='email'
-          validate={[validate]}
         />
+        <Typography hidden={!props.emailError}>Минимум 6 символов</Typography>
       </div>
+
       <div>
         <label htmlFor='reduxFormPassword'>Пароль</label>
         <Field
@@ -29,16 +25,32 @@ let LoginReduxForm = props => {
           id='reduxFormPassword'
           component='input'
           type='password'
-          validate={[validate]}
         />
+        <Typography hidden={!props.passwordError}>
+          Минимум 6 символов
+        </Typography>
       </div>
+
       <button type='submit'>Войти</button>
+
+      <Box>
+        <Typography>Введенная почта: {props.emailValue}</Typography>
+        <Typography>Введенный пароль: {props.passwordValue}</Typography>
+      </Box>
     </form>
   );
 };
 
 LoginReduxForm = reduxForm({
-  form: 'login',
+  form: 'loginForm',
 })(LoginReduxForm);
+
+LoginReduxForm.propTypes = {
+  handleSubmit: PropTypes.func,
+  emailValue: PropTypes.string.isRequired,
+  passwordValue: PropTypes.string.isRequired,
+  emailError: PropTypes.bool.isRequired,
+  passwordError: PropTypes.bool.isRequired,
+};
 
 export default LoginReduxForm;

@@ -40,6 +40,11 @@ class App extends React.Component {
               exact
               component={LoginReduxFormContainer}
             />
+            <Route
+              path='/login-redux-form/success'
+              exact
+              component={LoginReduxSuccessContainer}
+            />
             <Route path='/404' exact component={ErrorContainer} />
             <Redirect to='/404' />
           </Switch>
