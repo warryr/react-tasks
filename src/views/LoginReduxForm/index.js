@@ -28,7 +28,7 @@ let LoginReduxForm = props => {
     <Container component='main' maxWidth='xs'>
       <CssBaseline />
       <div className={classes.paper}>
-        <form onSubmit={props.handleSubmit} className={classes.form}>
+        <form onSubmit={props.handleSubmit} className={classes.form} noValidate>
           <Field
             name='email'
             component={renderTextField}

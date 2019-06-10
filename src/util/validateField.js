@@ -1,4 +1,4 @@
-const validateField = string => {
+const validateField = (string = '') => {
   return string.length > 5;
 };
 
