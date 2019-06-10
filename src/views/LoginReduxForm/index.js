@@ -1,43 +1,71 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Field, reduxForm } from 'redux-form';
+import { useStyles } from './styles';
+import Container from '@material-ui/core/Container';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
 import Box from '@material-ui/core/Box';
 
-let LoginReduxForm = props => {
+const renderTextField = ({input, ...custom}) => {
   return (
-    <form onSubmit={props.handleSubmit}>
-      <div>
-        <label htmlFor='reduxFormEmail'>Почта</label>
-        <Field
-          name='email'
-          id='reduxFormEmail'
-          component='input'
-          type='email'
-        />
-        <Typography hidden={!props.emailError}>Минимум 6 символов</Typography>
+    <TextField
+      variant='outlined'
+      margin='normal'
+      {...input}
+      {...custom}
+      fullWidth
+    />
+  );
+};
+
+let LoginReduxForm = props => {
+  const classes = useStyles();
+  return (
+    <Container component='main' maxWidth='xs'>
+      <CssBaseline />
+      <div className={classes.paper}>
+        <form onSubmit={props.handleSubmit} className={classes.form}>
+          <Field
+            name='email'
+            component={renderTextField}
+            label='Почта'
+            error={props.emailError}
+          />
+          <Typography className={classes.hint} hidden={!props.emailError}>
+            Минимум 6 символов
+          </Typography>
+
+          <Field
+            type='password'
+            name='password'
+            component={renderTextField}
+            label='Пароль'
+            error={props.passwordError}
+          />
+          <Typography className={classes.hint} hidden={!props.passwordError}>
+            Минимум 6 символов
+          </Typography>
+
+          <Button
+            type='submit'
+            variant='contained'
+            color='primary'
+            fullWidth
+            className={classes.submit}
+            onClick={props.login}>
+            Войти
+          </Button>
+        </form>
+
+        <Box className={classes.logBox}>
+          <Typography>Введенная почта: {props.emailValue}</Typography>
+          <Typography>Введенный пароль: {props.passwordValue}</Typography>
+        </Box>
       </div>
-
-      <div>
-        <label htmlFor='reduxFormPassword'>Пароль</label>
-        <Field
-          name='password'
-          id='reduxFormPassword'
-          component='input'
-          type='password'
-        />
-        <Typography hidden={!props.passwordError}>
-          Минимум 6 символов
-        </Typography>
-      </div>
-
-      <button type='submit'>Войти</button>
-
-      <Box>
-        <Typography>Введенная почта: {props.emailValue}</Typography>
-        <Typography>Введенный пароль: {props.passwordValue}</Typography>
-      </Box>
-    </form>
+    </Container>
   );
 };
 
