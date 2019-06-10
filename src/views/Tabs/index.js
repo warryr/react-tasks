@@ -22,9 +22,14 @@ export default () => {
           <Tab label='Счетчики' component={Link} to='/counters' />
           <Tab label='Войти' component={Link} to='/login' />
           <Tab
-            label='Войти с помощью Redux'
+            label='Войти с помощью redux'
             component={Link}
             to='/login-redux'
+          />
+          <Tab
+            label='Войти с помощью redux-form'
+            component={Link}
+            to='/login-redux-form'
           />
         </Tabs>
       </AppBar>

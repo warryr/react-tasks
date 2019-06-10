@@ -13,6 +13,7 @@ import ErrorContainer from './containers/ErrorContainer';
 import LoginContainer from './containers/LoginContainer';
 import LoginReduxContainer from './containers/LoginReduxContainer';
 import LoginReduxSuccessContainer from './containers/LoginReduxSuccessContainer';
+import LoginReduxFormContainer from './containers/LoginReduxFormContainer';
 
 class App extends React.Component {
   render() {
@@ -33,6 +34,11 @@ class App extends React.Component {
               path='/login-redux/success'
               exact
               component={LoginReduxSuccessContainer}
+            />
+            <Route
+              path='/login-redux-form'
+              exact
+              component={LoginReduxFormContainer}
             />
             <Route path='/404' exact component={ErrorContainer} />
             <Redirect to='/404' />
