@@ -19,6 +19,9 @@ export const InputReducer = (state = getInitialState(), action) => {
         currentPassword: action.payload,
       };
     }
+    case inputActionTypes.CLEAN_CURRENT_STATE: {
+      return getInitialState();
+    }
     default: {
       return state;
     }

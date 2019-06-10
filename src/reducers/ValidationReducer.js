@@ -19,6 +19,9 @@ export const ValidationReducer = (state = getInitialState(), action) => {
         passwordValid: action.payload,
       };
     }
+    case validationActionTypes.CLEAN_VALIDATION_STATE: {
+      return getInitialState();
+    }
     default: {
       return state;
     }

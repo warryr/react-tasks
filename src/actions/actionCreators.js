@@ -45,3 +45,15 @@ export const setLoginPassword = password => {
     payload: password,
   };
 };
+
+export const cleanCurrentState = () => {
+  return {
+    type: inputActionTypes.CLEAN_CURRENT_STATE,
+  };
+};
+
+export const cleanValidationState = () => {
+  return {
+    type: validationActionTypes.CLEAN_VALIDATION_STATE,
+  };
+};

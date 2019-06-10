@@ -8,6 +8,7 @@ import {
   setPasswordValidation,
   setLoginEmail,
   setLoginPassword,
+  cleanValidationState,
 } from '../actions/actionCreators';
 
 class LoginReduxFormContainer extends React.Component {
@@ -28,6 +29,10 @@ class LoginReduxFormContainer extends React.Component {
       this.props.history.push('/login-redux-form/success');
     }
   };
+
+  componentWillUnmount() {
+    this.props.cleanValidationState();
+  }
 
   render() {
     return (
@@ -56,6 +61,7 @@ const mapDispatchToProps = dispatch => ({
   setPasswordValidation: valid => dispatch(setPasswordValidation(valid)),
   setLoginEmail: email => dispatch(setLoginEmail(email)),
   setLoginPassword: password => dispatch(setLoginPassword(password)),
+  cleanValidationState: () => dispatch(cleanValidationState()),
 });
 
 export default connect(

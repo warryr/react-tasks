@@ -8,6 +8,8 @@ import {
   setPasswordValidation,
   setLoginEmail,
   setLoginPassword,
+  cleanCurrentState,
+  cleanValidationState,
 } from '../actions/actionCreators';
 import validateField from '../util/validateField';
 
@@ -41,7 +43,7 @@ class LoginReduxContainer extends React.Component {
   };
 
   componentWillUnmount() {
-    this.props.cleanCurrentValue();
+    this.props.cleanState();
   }
 
   render() {
@@ -74,10 +76,10 @@ const mapDispatchToProps = dispatch => ({
   setPasswordValidation: valid => dispatch(setPasswordValidation(valid)),
   setLoginEmail: email => dispatch(setLoginEmail(email)),
   setLoginPassword: password => dispatch(setLoginPassword(password)),
-  cleanCurrentValue: () => {
-    dispatch(setCurrentEmail(''));
-    dispatch(setCurrentPassword(''));
-  }
+  cleanState: () => {
+    dispatch(cleanCurrentState());
+    dispatch(cleanValidationState());
+  },
 });
 
 export default connect(
